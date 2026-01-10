@@ -25,9 +25,17 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v4
 
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
       # Runs a single command using the runners shell
       - name: Run a one-line script
         run: echo Hello, world!
+
+      - name: Markdown lint
+        run: python scripts/markdown_lint.py
 
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
